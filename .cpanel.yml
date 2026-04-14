@@ -22,4 +22,4 @@ deployment:
     - "*.eot"
     - "*.ttf"
   deployment_path: /
-  branch: main
+  branch: HEAD

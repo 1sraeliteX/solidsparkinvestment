@@ -13,22 +13,56 @@ function removeScrollingTicker() {
     // Also remove any element containing the scrolling text
     const allElements = document.querySelectorAll('*');
     allElements.forEach(element => {
-        if (element.textContent && element.textContent.includes('ownership') && 
+        if (element.textContent && (
+            element.textContent.includes('ownership') && 
             element.textContent.includes('Same services') && 
-            element.textContent.includes('solidsparkinvestment.com')) {
+            element.textContent.includes('solidsparkinvestment.com')
+        )) {
+            element.remove();
+        }
+    });
+    
+    // Remove any element with migration text
+    const migrationElements = document.querySelectorAll('*');
+    migrationElements.forEach(element => {
+        if (element.textContent && (
+            element.textContent.includes('Important Notice') &&
+            element.textContent.includes('migrated') &&
+            element.textContent.includes('solidsparkinvestment.ltd')
+        )) {
             element.remove();
         }
     });
 }
 
+// Aggressive DOM mutation observer to catch dynamically created elements
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+            removeScrollingTicker();
+        }
+    });
+});
+
+// Start observing the entire document
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    characterData: true
+});
+
 // Remove ticker immediately
 removeScrollingTicker();
 
 // Remove ticker periodically to catch dynamically created ones
-setInterval(removeScrollingTicker, 1000);
+setInterval(removeScrollingTicker, 500);
 
 // Remove ticker when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', removeScrollingTicker);
+
+// Also remove on window load
+window.addEventListener('load', removeScrollingTicker);
 
 AOS.init({
     duration: 1200,

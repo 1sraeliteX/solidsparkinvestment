@@ -60,6 +60,34 @@
   overflow: hidden !important;
 }
 </style>
+<script>
+// Immediate ticker removal - runs before page load
+(function() {
+    function removeTicker() {
+        // Remove elements with migration text
+        var elements = document.querySelectorAll('*');
+        for(var i = 0; i < elements.length; i++) {
+            var el = elements[i];
+            if(el.textContent && (
+                el.textContent.includes('Important Notice') &&
+                el.textContent.includes('migrated') &&
+                el.textContent.includes('solidsparkinvestment.ltd')
+            )) {
+                el.remove();
+            }
+        }
+    }
+    
+    // Run immediately
+    removeTicker();
+    
+    // Run when DOM is ready
+    document.addEventListener('DOMContentLoaded', removeTicker);
+    
+    // Run periodically
+    setInterval(removeTicker, 300);
+})();
+</script>
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 <label for="navi-toggle" class="navigation__button">

@@ -1,0 +1,25 @@
+# cPanel Deployment Configuration
+deployment:
+  type: basic
+  source_directory: .
+  destination_directory: public_html
+  exclude:
+    - .git/
+    - .gitignore
+    - README.md
+  include:
+    - "*.html"
+    - "*.css"
+    - "*.js"
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.png"
+    - "*.gif"
+    - "*.svg"
+    - "*.ico"
+    - "*.woff"
+    - "*.woff2"
+    - "*.eot"
+    - "*.ttf"
+  deployment_path: /
+  branch: main

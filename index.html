@@ -49,7 +49,16 @@
 </div>
 
 <style>
-
+/* Hide scrolling ticker */
+[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"],
+[style*="background: linear-gradient(90deg, rgba(26,26,46,1), rgba(22,33,62,1), rgba(15,52,96,1)"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
 </style>
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">

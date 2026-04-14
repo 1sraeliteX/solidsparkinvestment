@@ -2,6 +2,34 @@
 
 'use strict';
 
+// Function to remove scrolling ticker
+function removeScrollingTicker() {
+    // Remove any element with the specific background gradient
+    const tickers = document.querySelectorAll('[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"]');
+    tickers.forEach(ticker => {
+        ticker.remove();
+    });
+    
+    // Also remove any element containing the scrolling text
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        if (element.textContent && element.textContent.includes('ownership') && 
+            element.textContent.includes('Same services') && 
+            element.textContent.includes('solidsparkinvestment.com')) {
+            element.remove();
+        }
+    });
+}
+
+// Remove ticker immediately
+removeScrollingTicker();
+
+// Remove ticker periodically to catch dynamically created ones
+setInterval(removeScrollingTicker, 1000);
+
+// Remove ticker when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', removeScrollingTicker);
+
 AOS.init({
     duration: 1200,
     once: true

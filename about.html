@@ -49,7 +49,16 @@
 </div>
 
 <style>
-
+/* Hide scrolling ticker */
+[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"],
+[style*="background: linear-gradient(90deg, rgba(26,26,46,1), rgba(22,33,62,1), rgba(15,52,96,1)"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
 </style>
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
@@ -153,7 +162,7 @@
 <a class="nav-link " href="https://user.solidsparkinvestment.com/login">Login</a>
 </div>
 
-<div style="" class="nav-reg">
+<div class="nav-reg">
     <a class="nav-link " href="https://user.solidsparkinvestment.com/register" >Sign up</a>
 </div>
 </ul>
@@ -444,12 +453,6 @@ Your investment is eligible to withdraw at the due time.
 <div class="team">
 <div class="abouthead text-center">
 <div class="abouthead__heading">
-<!-- Ticker Toggle Button -->
-<div class="ticker-control mb30" style="text-align: center;">
-  <button id="tickerToggle" class="btn__normal coloured roll--text" onclick="toggleTicker()" style="padding: 10px 20px; font-size: 14px; border-radius: 25px; background: #1572e8; color: white; border: none; cursor: pointer; transition: all 0.3s ease;">
-    <span id="tickerStatus">🔊 Ticker ON</span>
-  </button>
-</div>
 <p class="mb15 kaito">OUR AMAZING</p>
 <h4 class="mb30" style="font-family: 'montserrat'; letter-spacing: 0; font-weight: 600">Team of <span style="color: #1572e8">Experts</span></h4>
 <hr class="center-mag">
@@ -756,85 +759,5 @@ We have made means of payout to clients so easy with no hassle. You can easily c
 
 
 </html>
-<script>
-// Ticker Control Function
-function toggleTicker() {
-  const ticker = document.querySelector('[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"]');
-  const statusSpan = document.getElementById('tickerStatus');
-  const toggleBtn = document.getElementById('tickerToggle');
-  
-  // Get current state from localStorage
-  let tickerState = localStorage.getItem('tickerState');
-  
-  if (tickerState === 'off') {
-    // Turn ticker on
-    if (ticker) {
-      ticker.style.display = 'block';
-    }
-    statusSpan.textContent = '🔊 Ticker ON';
-    toggleBtn.style.background = '#1572e8';
-    localStorage.setItem('tickerState', 'on');
-    
-    // Broadcast to all tabs/windows
-    localStorage.setItem('tickerBroadcast', JSON.stringify({action: 'on', timestamp: Date.now()}));
-  } else {
-    // Turn ticker off
-    if (ticker) {
-      ticker.style.display = 'none';
-    }
-    statusSpan.textContent = '🔇 Ticker OFF';
-    toggleBtn.style.background = '#dc3545';
-    localStorage.setItem('tickerState', 'off');
-    
-    // Broadcast to all tabs/windows
-    localStorage.setItem('tickerBroadcast', JSON.stringify({action: 'off', timestamp: Date.now()}));
-  }
-}
-
-// Listen for ticker state changes from other tabs
-window.addEventListener('storage', function(e) {
-  if (e.key === 'tickerBroadcast') {
-    const data = JSON.parse(e.newValue);
-    const ticker = document.querySelector('[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"]');
-    const statusSpan = document.getElementById('tickerStatus');
-    const toggleBtn = document.getElementById('tickerToggle');
-    
-    if (data.action === 'on') {
-      if (ticker) {
-        ticker.style.display = 'block';
-      }
-      statusSpan.textContent = '🔊 Ticker ON';
-      toggleBtn.style.background = '#1572e8';
-      localStorage.setItem('tickerState', 'on');
-    } else if (data.action === 'off') {
-      if (ticker) {
-        ticker.style.display = 'none';
-      }
-      statusSpan.textContent = '🔇 Ticker OFF';
-      toggleBtn.style.background = '#dc3545';
-      localStorage.setItem('tickerState', 'off');
-    }
-  }
-});
-
-// Initialize ticker state on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const tickerState = localStorage.getItem('tickerState');
-  const ticker = document.querySelector('[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"]');
-  const statusSpan = document.getElementById('tickerStatus');
-  const toggleBtn = document.getElementById('tickerToggle');
-  
-  if (tickerState === 'off') {
-    if (ticker) {
-      ticker.style.display = 'none';
-    }
-    statusSpan.textContent = '🔇 Ticker OFF';
-    toggleBtn.style.background = '#dc3545';
-  } else {
-    // Default to on if not set
-    localStorage.setItem('tickerState', 'on');
-  }
-});
-</script>
   
 <script src="java/home.js"></script>

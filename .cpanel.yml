@@ -1,25 +1,6 @@
-# cPanel Deployment Configuration
+---
 deployment:
-  type: basic
-  source_directory: .
-  destination_directory: public_html
-  exclude:
-    - .git/
-    - .gitignore
-    - README.md
-  include:
-    - "*.html"
-    - "*.css"
-    - "*.js"
-    - "*.jpg"
-    - "*.jpeg"
-    - "*.png"
-    - "*.gif"
-    - "*.svg"
-    - "*.ico"
-    - "*.woff"
-    - "*.woff2"
-    - "*.eot"
-    - "*.ttf"
-  deployment_path: /
-  branch: HEAD
+  tasks:
+    - export DEPLOYPATH=/home/solidspa/public_html/
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R .htaccess $DEPLOYPATH 2>/dev/null || true

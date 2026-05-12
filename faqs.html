@@ -46,9 +46,64 @@
 </div>
 
 <style>
+/* FAQ page specific styles */
+.basic__text h4 {
+    color: #1572e8;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
 
-</style>
-<style>
+.basic__break {
+    width: 50px;
+    height: 3px;
+    background: #1572e8;
+    margin-bottom: 20px;
+}
+
+.basic__text p {
+    line-height: 1.6;
+    color: #666;
+}
+
+.locate {
+    background: #f8f9fa;
+    padding: 80px 0;
+}
+
+.locate__heading h1 {
+    color: #1572e8;
+    font-weight: 700;
+}
+
+.contact-main__heading h4 {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .basic__text {
+        margin-bottom: 30px;
+    }
+    
+    .contact-main__main .row {
+        flex-direction: column;
+    }
+    
+    .contact-main__main .col-lg-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .locate {
+        padding: 40px 20px;
+    }
+    
+    .locate__heading h1 {
+        font-size: 2rem;
+    }
+}
+
 /* Mobile Google Translate Widget Styling */
 #google_translate_element_mobile {
     padding: 10px 0;
@@ -108,7 +163,7 @@
 <nav class="navigation__nav">
 <ul class="navigation__list">
 <li class="navigation__item">
-<a href="index-2.html" class="navigation__link" id="active">Home</a>
+<a href="index.html" class="navigation__link" id="active">Home</a>
 </li>
 <li class="navigation__item">
 <a href="about.html" class="navigation__link">About Us</a>
@@ -151,7 +206,7 @@
 </div>
 <header class="header navbar fixed-top navbar-expand-lg">
 <div class="container">
-<a class="navbar-brand logo" href="index-2.html">
+<a class="navbar-brand logo" href="index.html">
 <img src="images/3.svg" class="hide first" alt="Solidsparkinvestment" width=150>
 <img src="images/prime.png" class="last" width= alt="Solidsparkinvestment" style="width:150px" />
 <!-- Google Translate Widget -->
@@ -190,7 +245,7 @@ function googleTranslateElementInit() {
 <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
 <ul class=" nav navbar-nav menu">
 <li class="nav-item">
-<a class="nav-link" href="index-2.html" id="active">Home</a>
+<a class="nav-link" href="index.html" id="active">Home</a>
 </li>
 <li class="nav-item">
 <a class="nav-link " href="about.html">About us</a>
@@ -225,7 +280,7 @@ function googleTranslateElementInit() {
 <a class="nav-link " href="https://user.solidsparkinvestment.com/login">Login</a>
 </div>
 
-<div style="" class="nav-reg">
+<div class="nav-reg">
     <a class="nav-link " href="https://user.solidsparkinvestment.com/register" >Sign up</a>
 </div>
 </ul>
@@ -248,11 +303,11 @@ function googleTranslateElementInit() {
 <script>
     
 </script><title>FAQs | Solidsparkinvestment investment firm </title>
-<link rel="stylesheet" type="text/css" href="stylesheet/faqs.html">
+<link rel="stylesheet" type="text/css" href="stylesheet/about.css">
 <main style="margin-top: 50px;">
 <section>
 <div class="contact">
-<div class="contact__bg bg-img">
+<div class="contact__bg bg-img" style="background-image: url(images/BG-Worldmap.png);">
 <div class="overlay_dark contact__bg--gradient"></div>
 <div class="contact__text container hundper">
 <div class="widthper mt80">
@@ -281,7 +336,7 @@ function googleTranslateElementInit() {
 <div class="basic">
 
 <div class="basic__text">
-<h4>How do I create my account?</h54>
+<h4>How do I create my account?</h4>
 <div class="basic__break"></div>
 <p>
 Registration process is very easy and will take a few moments to complete Simply click Sign up button and fill in all the required fields
@@ -350,7 +405,7 @@ Your deposit will be reflected immediately once it is confirmed on the blockchai
 <div class="basic">
 
 <div class="basic__text">
-<h4>What approach to asset allocation do you use?</h54>
+<h4>What approach to asset allocation do you use?</h4>
 <div class="basic__break"></div>
 <p>
 Our strategy is based on a long-term disciplined approach to investing. After reviewing your Client Profile and completing the client interview process, we can develop a portfolio and asset allocation strategy to meet your individual needs and tolerance for risk. We use tactical asset allocation in our ongoing management of your portfolio. 
@@ -417,22 +472,17 @@ Once we receive your withdrawal request we process immediately and send to your 
 </div>
 </div>
 </section>
-<section class="pt50" style="">
-<div class="row">
-<div class="col-md-10 p0">
+<section class="pt50 pb80">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8">
 <div class="pt100 pb100 locate" data-aos="fade-right" data-aos-duration="1900">
-<div class="mx-auto">
 <div class="locate__heading text-center">
 <h1 class="mb70">Didn't find the answer?</h1>
 </div>
 <div class="mb80">
-<div class="row">
 <div class="locate__text text-center">
-<p>
-You can reach us through this
-</p>
-
-</div>
+<p>You can reach us through this</p>
 </div>
 <div class="locate__divider pt25"></div>
 </div>
@@ -443,7 +493,6 @@ You can reach us through this
 </div>
 <div class="locate__text text-center">
 <p>company phone</p>
-
 <p>+447950413926</p><br>
 <!-- <p>+447456195375</p><br> -->
 <!-- <p>+18138964803</p> -->
@@ -451,7 +500,10 @@ You can reach us through this
 </div>
 </div>
 </div>
-<div class="col-md-6 p0" hidden>
+</div>
+</div>
+</section>
+<section>
 <div class="map" data-aos="fade-left" data-aos-duration="1500">
  <div class="map-main">
      
@@ -478,7 +530,7 @@ You can reach us through this
 </div>
 <div class="col-lg-6 text-center text-right-md">
 <div>
-<a href="index-2.html">Home</a>
+<a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="https://user.solidsparkinvestment.com/login">Login</a>
 <a href="contact.html">Contact</a>
@@ -524,7 +576,6 @@ You can reach us through this
     var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
     s=d.getElementsByTagName('script')[0];c=d.createElement('script');
     c.type='text/javascript';c.charset='utf-8';c.async=true;
-    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
   })(document);
   </script>
   <script>

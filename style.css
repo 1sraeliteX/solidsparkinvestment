@@ -37,15 +37,29 @@
     vertical-align: middle !important;
 }
 
-/* Override Bootstrap navbar conflicts */
-.header.navbar .navbar-brand.logo {
-    flex-shrink: 0 !important;
-    margin-right: 0 !important;
+/* Logo centering for consistent display */
+.header-center .navbar-brand {
+    display: flex;
+    align-items: center;
 }
 
-.header.navbar .navbar-toggler {
-    flex-shrink: 0 !important;
-    margin: 0 !important;
+.header-center #google_translate_element {
+    margin: 0;
+}
+
+/* Ensure logo stays centered on mobile */
+@media (max-width: 768px) {
+    .header-center .navbar-brand {
+        justify-content: center;
+    }
+}
+
+/* Additional centering for navigation elements */
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 /* Ensure Google Translate is visible on all devices */

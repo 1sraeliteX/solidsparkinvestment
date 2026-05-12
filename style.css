@@ -1,3 +1,186 @@
 .navbar-brand.logo {
     margin-top: 10px !important;
 }
+
+/* Google Translate Element - Independent Header Layout */
+.header .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Header sections for independent positioning */
+.header-left {
+    flex: 0 0 auto;
+    order: 1;
+}
+
+.header-center {
+    flex: 0 0 auto;
+    order: 2;
+    padding: 0 10px;
+}
+
+.header-right {
+    flex: 0 0 auto;
+    order: 3;
+}
+
+/* Google Translate Element - Base Styles */
+#google_translate_element {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    vertical-align: middle !important;
+}
+
+/* Override Bootstrap navbar conflicts */
+.header.navbar .navbar-brand.logo {
+    flex-shrink: 0 !important;
+    margin-right: 0 !important;
+}
+
+.header.navbar .navbar-toggler {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+/* Ensure Google Translate is visible on all devices */
+@media (max-width: 1200px) {
+    .header-center {
+        padding: 0 8px;
+    }
+    
+    #google_translate_element {
+        margin: 0 5px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-center {
+        padding: 0 6px;
+    }
+    
+    #google_translate_element {
+        margin: 0 3px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Force header visibility on mobile */
+    .header.navbar {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .header .container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        padding: 5px 15px !important;
+    }
+    
+    #google_translate_element {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin: 0 5px !important;
+        position: relative !important;
+        z-index: 1000 !important;
+        transform: scale(0.9) !important;
+        transform-origin: center !important;
+    }
+    
+    /* Google Translate gadget styles for mobile */
+    .goog-te-gadget {
+        display: inline-block !important;
+        visibility: visible !important;
+        font-size: 11px !important;
+        color: #333 !important;
+    }
+    
+    .goog-te-gadget-simple {
+        display: inline-block !important;
+        visibility: visible !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid #ddd !important;
+        padding: 2px 6px !important;
+        border-radius: 3px !important;
+        margin: 0 !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+        min-width: 120px !important;
+    }
+    
+    .goog-te-gadget-simple .goog-te-menu-value span {
+        color: #333 !important;
+        font-size: 11px !important;
+    }
+    
+    /* Hide Google Translate banner on mobile */
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+    
+    /* Header adjustments for mobile */
+    .header-left {
+        flex: 0 0 auto;
+        max-width: 60%;
+    }
+    
+    .header-center {
+        flex: 0 0 auto;
+        padding: 0 5px;
+    }
+    
+    .header-right {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header .container {
+        padding: 3px 10px !important;
+    }
+    
+    .header-left {
+        max-width: 55%;
+    }
+    
+    .header-center {
+        padding: 0 3px;
+    }
+    
+    #google_translate_element {
+        margin: 0 2px !important;
+        transform: scale(0.8) !important;
+        transform-origin: center !important;
+    }
+    
+    .goog-te-gadget-simple {
+        transform: scale(0.85) !important;
+        transform-origin: center !important;
+        padding: 1px 4px !important;
+        min-width: 100px !important;
+    }
+    
+    .goog-te-gadget-simple .goog-te-menu-value span {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #google_translate_element {
+        transform: scale(0.75) !important;
+        margin: 0 1px !important;
+    }
+    
+    .goog-te-gadget-simple {
+        min-width: 90px !important;
+        padding: 1px 3px !important;
+    }
+}

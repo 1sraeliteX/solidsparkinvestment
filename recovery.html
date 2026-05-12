@@ -49,7 +49,104 @@
 </div>
 
 <style>
+/* Mobile Google Translate Widget Styling */
+#google_translate_element_mobile {
+    padding: 10px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
 
+#google_translate_element_mobile .goog-te-gadget {
+    font-family: inherit !important;
+    color: #fff !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px;
+    padding: 5px 10px !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple .goog-te-menu-value span {
+    color: #fff !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple .goog-te-menu-value:hover {
+    color: #32CD32 !important;
+}
+
+/* Hide Google Translate attribution on mobile */
+#google_translate_element_mobile .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+    display: none;
+}
+
+#google_translate_element_mobile .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3) {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #google_translate_element_mobile {
+        margin: 5px 20px;
+        padding: 10px 0;
+    }
+}
+
+/* Force mobile navigation visibility for testing */
+@media (max-width: 991px) {
+    .navigation {
+        display: block !important;
+    }
+    
+    .navigation__button {
+        display: block !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+        background: white !important;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50% !important;
+        border: 2px solid #333 !important;
+        cursor: pointer !important;
+    }
+    
+    .navigation__icon {
+        display: block !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 20px !important;
+        height: 2px !important;
+        background: #333 !important;
+    }
+    
+    .navigation__icon::before,
+    .navigation__icon::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 20px !important;
+        height: 2px !important;
+        background: #333 !important;
+    }
+    
+    .navigation__icon::before {
+        top: -6px !important;
+    }
+    
+    .navigation__icon::after {
+        top: 6px !important;
+    }
+}
 </style>
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
@@ -59,6 +156,12 @@
 <div class="navigation__bg">&nbsp;</div>
 <nav class="navigation__nav">
 <ul class="navigation__list">
+<li class="navigation__item">
+<!-- Google Translate Widget - Mobile -->
+<div id="google_translate_element_mobile" style="padding: 10px 0; text-align: center; background: rgba(255,0,0,0.2); border: 1px solid red; min-height: 40px;">
+    <div style="color: white; font-size: 12px;">Loading Translator...</div>
+</div>
+</li>
 <li class="navigation__item">
 <a href="index-2.html" class="navigation__link" id="active">Home</a>
 </li>
@@ -108,21 +211,20 @@
 </div>
 <header class="header navbar fixed-top navbar-expand-lg">
 <div class="container">
+<div class="header-left">
 <a class="navbar-brand logo" href="index-2.html">
 <img src="images/3.svg" class="hide first" alt="Solidsparkinvestment" width=150>
 <img src="images/prime.png" class="last" width= alt="Solidsparkinvestment" style="width:150px" />
 </a>
-<!-- Google Translate Widget -->
-<div id="google_translate_element" style="margin-left: 20px;"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+<div class="header-center">
+<div id="google_translate_element"></div>
+</div>
+<div class="header-right">
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
 <span class="lnr lnr-text-align-right"></span>
 </button>
+</div>
 <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
 <ul class=" nav navbar-nav menu">
 <li class="nav-item">
@@ -167,21 +269,155 @@ function googleTranslateElementInit() {
 </ul>
 </div>
 </div>
-<!--// translator-->
-<div id="google_translate_element"></div>
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  try {
+    console.log('Initializing Google Translate...');
+    
+    // Desktop version
+    var desktopElement = document.getElementById('google_translate_element');
+    if (desktopElement) {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+      console.log('Desktop Google Translate initialized');
+    }
+    
+    // Mobile version
+    var mobileElement = document.getElementById('google_translate_element_mobile');
+    if (mobileElement) {
+      // Clear loading message
+      mobileElement.innerHTML = '';
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element_mobile');
+      console.log('Mobile Google Translate initialized');
+    }
+  } catch (error) {
+    console.error('Error initializing Google Translate:', error);
+  }
 }
 </script>
 
-<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </header>
 
 <script>
+// Immediate visual test
+document.addEventListener('DOMContentLoaded', function() {
+    var mobileElement = document.getElementById('google_translate_element_mobile');
+    if (mobileElement) {
+        console.log('Mobile element found immediately');
+        mobileElement.style.border = '2px solid blue';
+        mobileElement.innerHTML = '<div style="color: white; background: blue; padding: 5px;">Element Found - Loading Google Translate...</div>';
+    }
+});
+
+// Enhanced Google Translate Debug
+window.addEventListener('load', function() {
+    console.log('=== Google Translate Debug ===');
+    console.log('Mobile element exists:', !!document.getElementById('google_translate_element_mobile'));
+    console.log('Desktop element exists:', !!document.getElementById('google_translate_element'));
+    console.log('Google Translate loaded:', !!window.google && !!window.google.translate);
     
+    // Multiple initialization attempts
+    var attempts = 0;
+    var maxAttempts = 3;
+    
+    function tryInitialize() {
+        attempts++;
+        console.log('Initialization attempt #' + attempts);
+        
+        var mobileElement = document.getElementById('google_translate_element_mobile');
+        if (mobileElement && window.google && window.google.translate) {
+            console.log('Google Translate available, initializing...');
+            if (typeof googleTranslateElementInit === 'function') {
+                googleTranslateElementInit();
+            }
+        } else if (attempts < maxAttempts) {
+            console.log('Google Translate not ready, retrying in 2 seconds...');
+            setTimeout(tryInitialize, 2000);
+        } else {
+            console.error('Failed to initialize Google Translate after ' + maxAttempts + ' attempts');
+            // Show error message
+            var mobileElement = document.getElementById('google_translate_element_mobile');
+            if (mobileElement) {
+                mobileElement.innerHTML = '<div style="color: red; background: white; padding: 5px;">Google Translate Failed to Load</div>';
+            }
+        }
+    }
+    
+    // Start initialization attempts
+    setTimeout(tryInitialize, 1000);
+    
+    // Check if elements have content after initialization
+    setTimeout(function() {
+        var mobileElement = document.getElementById('google_translate_element_mobile');
+        var desktopElement = document.getElementById('google_translate_element');
+        
+        console.log('Mobile element has content:', mobileElement && mobileElement.children.length > 0);
+        console.log('Desktop element has content:', desktopElement && desktopElement.children.length > 0);
+        console.log('Mobile element innerHTML:', mobileElement ? mobileElement.innerHTML.substring(0, 100) : 'null');
+    }, 5000);
+});
+
+// Manual trigger for testing
+window.reinitGoogleTranslate = function() {
+    console.log('Manual reinitialization triggered');
+    var mobileElement = document.getElementById('google_translate_element_mobile');
+    if (mobileElement) {
+        mobileElement.innerHTML = '<div style="color: yellow; background: black; padding: 5px;">Manual Reinitialization...</div>';
+    }
+    if (typeof googleTranslateElementInit === 'function') {
+        googleTranslateElementInit();
+    }
+};
+
+// Force initialization after 10 seconds
+setTimeout(function() {
+    console.log('Force initialization attempt...');
+    window.reinitGoogleTranslate();
+}, 10000);
+
+// Mobile navigation test
+window.testMobileNav = function() {
+    console.log('Testing mobile navigation...');
+    var checkbox = document.getElementById('navi-toggle');
+    var button = document.querySelector('.navigation__button');
+    var nav = document.querySelector('.navigation__nav');
+    
+    console.log('Checkbox exists:', !!checkbox);
+    console.log('Button exists:', !!button);
+    console.log('Nav exists:', !!nav);
+    console.log('Checkbox checked:', checkbox ? checkbox.checked : 'N/A');
+    console.log('Window width:', window.innerWidth);
+    console.log('Mobile navigation should be visible:', window.innerWidth < 991);
+    
+    // Manual toggle
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        console.log('Toggled navigation to:', checkbox.checked);
+    }
+};
+
+// Add mobile navigation click handler
+document.addEventListener('DOMContentLoaded', function() {
+    var button = document.querySelector('.navigation__button');
+    if (button) {
+        button.addEventListener('click', function() {
+            console.log('Mobile navigation button clicked');
+            var checkbox = document.getElementById('navi-toggle');
+            if (checkbox) {
+                console.log('Navigation is now:', checkbox.checked ? 'open' : 'closed');
+            }
+        });
+    }
+});
 </script><title>Fund Recovery| Solidsparkinvestment investment firm </title>
 <link rel="stylesheet" type="text/css" href="stylesheet/about.css">
 <link rel="stylesheet" type="text/css" href="stylesheet/magnific-popup.css">
@@ -905,6 +1141,9 @@ We understand that recovering lost funds can be a difficult and time-consuming p
                 x.parentNode.insertBefore(s, x);
             </script>
 <script src="java/home.js"></script>
+
+<!-- Google Translate Script -->
+
 </body>
 
 <!-- Mirrored from solidsparkinvestment.com/recovery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2026 11:04:34 GMT -->

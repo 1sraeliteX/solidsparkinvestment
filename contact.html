@@ -51,6 +51,57 @@
 <style>
 
 </style>
+<style>
+/* Mobile Google Translate Widget Styling */
+#google_translate_element_mobile {
+    padding: 10px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget {
+    font-family: inherit !important;
+    color: #fff !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px;
+    padding: 5px 10px !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple .goog-te-menu-value span {
+    color: #fff !important;
+}
+
+#google_translate_element_mobile .goog-te-gadget-simple .goog-te-menu-value:hover {
+    color: #32CD32 !important;
+}
+
+/* Hide Google Translate attribution on mobile */
+#google_translate_element_mobile .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+    display: none;
+}
+
+#google_translate_element_mobile .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3) {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #google_translate_element_mobile {
+        margin: 5px 20px;
+        padding: 10px 0;
+    }
+}
+</style>
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 <label for="navi-toggle" class="navigation__button">
@@ -94,6 +145,12 @@
 </li>
 <li class="navigation__item">
 <a href="https://user.solidsparkinvestment.com/login" class="navigation__link">Log in</a>
+</li>
+<li class="navigation__item">
+<!-- Google Translate Widget - Mobile -->
+<div id="google_translate_element_mobile" style="padding: 10px 0; text-align: center; background: rgba(255,0,0,0.2); border: 1px solid red; min-height: 40px;">
+    <div style="color: white; font-size: 12px;">Loading Translator...</div>
+</div>
 </li>
 <li class="navigation__item">
 <a href="https://user.solidsparkinvestment.com/register" class="navigation__link">Register</a>

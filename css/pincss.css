@@ -149,11 +149,11 @@ max-width:80%;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: hidePreloader 7s forwards;
+  animation: hidePreloader 0.1s forwards;
 }
 
 @keyframes hidePreloader {
-  0%, 85% { opacity: 1; visibility: visible; }
+  0% { opacity: 1; visibility: visible; }
   100% { opacity: 0; visibility: hidden; display: none; }
 }
 

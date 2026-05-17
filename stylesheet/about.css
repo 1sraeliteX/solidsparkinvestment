@@ -1847,6 +1847,7 @@ img {
   height: 97vh; }
   .about__bg {
     background-image: url("../img/3.jpg");
+    background-color: #1a1a2e;
     background-position: right !important;
     height: 100%; }
     .about__bg .about__bg--gradient {

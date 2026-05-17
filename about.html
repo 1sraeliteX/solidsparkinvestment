@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from solidsparkinvestment.com/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2026 11:04:16 GMT -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
 <meta charset="UTF-8">
@@ -11,7 +9,7 @@
 <meta name="keywords" lang="en" content="stock exchanges, cryptocurrency, forex, bitcoin, investment, ethereum, markets, Solidsparkinvestment, crypto-investment">
 <meta property="og:url" content="/" />
 <meta property="og:type" content="Organization" />
-<meta property="og:title" content="SolidsparkinvestmentInvestment Firm" />
+<meta property="og:title" content="Solidsparkinvestment Investment Firm" />
 <meta property="og:description" content="Solidsparkinvestment is an Investment firm that generates passive incomes for her potential Investors, we offer Crypto, Blockchain and forex related investment services." />
 <meta property="og:image" content="i.ibb.co/09t77QX/tradeon.html" />
 
@@ -40,6 +38,7 @@
 <link rel="stylesheet" type="text/css" href="webfont/cryptocoins-colors.css">
 <link rel="stylesheet" href="stylesheet/simple-line-icons.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/collapsible-nav.css">
 
 
 </head>
@@ -48,18 +47,6 @@
   <img src="images/icon01.svg" alt="logo" class="plogo" width=40 height=40>
 </div>
 
-<style>
-/* Hide scrolling ticker */
-[style*="background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460)"],
-[style*="background: linear-gradient(90deg, rgba(26,26,46,1), rgba(22,33,62,1), rgba(15,52,96,1)"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
-}
-</style>
 <style>
 /* Mobile Google Translate Widget Styling */
 #google_translate_element_mobile {
@@ -111,34 +98,7 @@
     }
 }
 </style>
-<script>
-// Immediate ticker removal - runs before page load
-(function() {
-    function removeTicker() {
-        // Remove elements with migration text
-        var elements = document.querySelectorAll('*');
-        for(var i = 0; i < elements.length; i++) {
-            var el = elements[i];
-            if(el.textContent && (
-                el.textContent.includes('Important Notice') &&
-                el.textContent.includes('migrated') &&
-                el.textContent.includes('solidsparkinvestment.ltd')
-            )) {
-                el.remove();
-            }
-        }
-    }
-    
-    // Run immediately
-    removeTicker();
-    
-    // Run when DOM is ready
-    document.addEventListener('DOMContentLoaded', removeTicker);
-    
-    // Run periodically
-    setInterval(removeTicker, 300);
-})();
-</script>
+
 <div class="navigation">
 <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 <label for="navi-toggle" class="navigation__button">
@@ -148,10 +108,10 @@
 <nav class="navigation__nav">
 <ul class="navigation__list">
 <li class="navigation__item">
-<a href="index.html" class="navigation__link" id="active">Home</a>
+<a href="index.html" class="navigation__link">Home</a>
 </li>
 <li class="navigation__item">
-<a href="about.html" class="navigation__link">About Us</a>
+<a href="about.html" class="navigation__link" id="active">About Us</a>
 </li>
 
 <li class="navigation__item">
@@ -184,22 +144,23 @@
 <a href="https://user.solidsparkinvestment.com/login" class="navigation__link">Log in</a>
 </li>
 <li class="navigation__item">
-<!-- Google Translate Widget - Mobile -->
-<div id="google_translate_element_mobile" style="padding: 10px 0; text-align: center; background: rgba(255,0,0,0.2); border: 1px solid red; min-height: 40px;">
-    <div style="color: white; font-size: 12px;">Loading Translator...</div>
-</div>
+<a href="https://user.solidsparkinvestment.com/register" class="navigation__link">Register</a>
 </li>
 <li class="navigation__item">
-<a href="https://user.solidsparkinvestment.com/register" class="navigation__link">Register</a>
+<!-- Google Translate Widget - Mobile -->
+<div id="google_translate_element_mobile" style="padding: 10px 0; text-align: center;"></div>
 </li>
 </ul>
 </nav>
 </div>
+
+
 <div class="logo-resp">
 <div class="logo__img">
 <img src="images/prime.png" class="last" alt="Trade" width="220">
 </div>
 </div>
+
 <header class="header navbar fixed-top navbar-expand-lg">
 <div class="container">
 <a class="navbar-brand logo" href="index.html">
@@ -241,10 +202,10 @@ function googleTranslateElementInit() {
 <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
 <ul class=" nav navbar-nav menu">
 <li class="nav-item">
-<a class="nav-link" href="index.html" id="active">Home</a>
+<a class="nav-link" href="index.html">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link " href="about.html">About us</a>
+<a class="nav-link " href="about.html" id="active">About us</a>
 </li>
 <li class="nav-item dropdown">
 <button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i></button>
@@ -276,93 +237,50 @@ function googleTranslateElementInit() {
 <a class="nav-link " href="https://user.solidsparkinvestment.com/login">Login</a>
 </div>
 
-<div class="nav-reg">
+<div style="" class="nav-reg">
     <a class="nav-link " href="https://user.solidsparkinvestment.com/register" >Sign up</a>
 </div>
 </ul>
 </div>
 </div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  try {
-    console.log('Initializing Google Translate...');
-    
-    // Desktop version
-    var desktopElement = document.getElementById('google_translate_element');
-    if (desktopElement) {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-      console.log('Desktop Google Translate initialized');
-    }
-    
-    // Mobile version
-    var mobileElement = document.getElementById('google_translate_element_mobile');
-    if (mobileElement) {
-      // Clear loading message
-      mobileElement.innerHTML = '';
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element_mobile');
-      console.log('Mobile Google Translate initialized');
-    }
-  } catch (error) {
-    console.error('Error initializing Google Translate:', error);
-  }
-}
-</script>
-
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script>
-// Enhanced Google Translate Debug
-window.addEventListener('load', function() {
-    console.log('=== Google Translate Debug ===');
-    console.log('Mobile element exists:', !!document.getElementById('google_translate_element_mobile'));
-    console.log('Desktop element exists:', !!document.getElementById('google_translate_element'));
-    console.log('Google Translate loaded:', !!window.google && !!window.google.translate);
-    
-    // Multiple initialization attempts
-    var attempts = 0;
-    var maxAttempts = 3;
-    
-    function tryInitialize() {
-        attempts++;
-        console.log('Initialization attempt #' + attempts);
-        
-        var mobileElement = document.getElementById('google_translate_element_mobile');
-        if (mobileElement && window.google && window.google.translate) {
-            console.log('Google Translate available, initializing...');
-            if (typeof googleTranslateElementInit === 'function') {
-                googleTranslateElementInit();
-            }
-        } else if (attempts < maxAttempts) {
-            console.log('Google Translate not ready, retrying in 2 seconds...');
-            setTimeout(tryInitialize, 2000);
-        } else {
-            console.error('Failed to initialize Google Translate after ' + maxAttempts + ' attempts');
-            // Show error message
-            var mobileElement = document.getElementById('google_translate_element_mobile');
-            if (mobileElement) {
-                mobileElement.innerHTML = '<div style="color: red; background: white; padding: 5px;">Google Translate Failed to Load</div>';
-            }
-        }
-    }
-    
-    // Start initialization attempts
-    setTimeout(tryInitialize, 1000);
-});
-</script>
 
 </header>
 
+<!-- Announcement Ticker -->
+<div style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  border-bottom: 2px solid #f0c040;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  display: none;
+">
+</div>
+<!-- End Ticker -->
 
 <script>
-    
+function myFunction() {
+}
+
+window.onclick = function(event) {
+    var i;
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 </script><title>About Us | Solidsparkinvestment investment firm </title>
 <link rel="stylesheet" type="text/css" href="stylesheet/about.css">
 <link rel="stylesheet" type="text/css" href="stylesheet/magnific-popup.css">
@@ -839,7 +757,7 @@ We have made means of payout to clients so easy with no hassle. You can easily c
 <hr class="my-0">
 </div>
 <div class="col-md-4 text-center text-left-md">
-<small>© 2023 Solidsparkinvestment. All rights reserved. <a href="terms.html">Terms</a></small>
+<small> 2023 Solidsparkinvestment. All rights reserved. <a href="terms.html">Terms</a></small>
 </div>
 <div class="col-md-8 text-center text-right-md">
 <div>
@@ -925,6 +843,19 @@ We have made means of payout to clients so easy with no hassle. You can easily c
   
   
 <script src="java/home.js"></script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en', 
+    includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,ar,hi,zh-CN,zh-TW,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,el,tr,uk,be,ka,hy,az,he,th,vi,id,ms,tl,sw,af,is,mt,cy,ga,gd,eu,ca,gl,oc,ast,lb,fo,hsb,dsb,nn,rm,fur,lij,sc,nap,scn,vec,wa,frp,mwl,lad,ext', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 
 <!-- Mirrored from solidsparkinvestment.com/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Apr 2026 11:04:22 GMT -->
